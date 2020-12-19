@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:coinsburada/models/coins.dart';
-import 'package:coinsburada/widgets/coindetails.dart';
+import 'package:coinsburada/widgets/coinlist.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -32,37 +32,59 @@ class TumBilgiler extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
       ),
-      body: FutureBuilder(
-          future: coins(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Container(
-                child: ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Currency",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Pazar Hacmi /24h",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Değer/24h",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height * 8.3 / 10,
+            child: FutureBuilder(
+                future: coins(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
                     return Container(
-                      padding: EdgeInsets.only(top: 4),
-                      color: Colors.blue[50],
-                      height: MediaQuery.of(context).size.height * 1.25 / 10,
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        children: [CoinList(data: snapshot.data[index])],
+                      child: ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return CoinList(
+                            data: snapshot.data[index],
+                            index: index,
+                          );
+                        },
                       ),
                     );
-                  },
-                ),
-              );
-            } else {
-              return Center(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Veriler Yükleniyor\n Lütfen Bekleyiniz\n"),
-                  CircularProgressIndicator(),
-                ],
-              ));
-            }
-          }),
+                  } else {
+                    return Center(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Veriler Yükleniyor\n Lütfen Bekleyiniz\n"),
+                        CircularProgressIndicator(),
+                      ],
+                    ));
+                  }
+                }),
+          ),
+        ],
+      ),
     );
   }
 }

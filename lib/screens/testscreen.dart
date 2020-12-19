@@ -3,6 +3,9 @@ import 'package:coinsburada/screens/sonuc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+
+import '../models/coins.dart';
 
 class Test extends StatefulWidget {
   @override
@@ -11,7 +14,7 @@ class Test extends StatefulWidget {
 
 class _TestState extends State<Test> {
   int index = 0;
-  String sehir = "ADANA";
+  String coin = "Bitcoin";
   int counter_yes = 0;
 
   String city = "";
@@ -28,32 +31,50 @@ class _TestState extends State<Test> {
     return sorular;
   }
 
-  Future<List<DropdownMenuItem>> getcity() async {
-    var response = await DefaultAssetBundle.of(context)
-        .loadString("lib/assets/iller.json");
-    var jsonResponse = convert.json.decode(response);
-    List<DropdownMenuItem<String>> citys = [];
-    for (var city in jsonResponse.keys) {
-      citys.add(DropdownMenuItem(
-        child: Text(jsonResponse[city]),
-        value: jsonResponse[city],
-      ));
+  Future<List<Coins>> coins() async {
+    var url =
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+    var response = await http.get(url);
+    //debugPrint(response.body);
+    var jsonResponse = convert.json.decode(response.body);
+
+    List<Coins> datas = [];
+    for (var u in jsonResponse) {
+      Coins coins = Coins.fromJson(u);
+      datas.add(coins);
     }
-    return citys;
+    int range = datas.length;
+    datas.removeRange(100, range);
+
+    return datas;
+  }
+
+  Future<List<DropdownMenuItem>> getcoin() async {
+    List<Coins> datas = await coins();
+    List<Map<String, dynamic>> maps = [];
+    for (int i = 0; i <= 99; i++) {
+      maps.add({'name': datas[i].name});
+    }
+    List<DropdownMenuItem<String>> coin_namelist = [];
+    for (var coin in maps) {
+      coin_namelist.add(
+          DropdownMenuItem(child: Text(coin["name"]), value: coin["name"]));
+    }
+    return coin_namelist;
   }
 
   Future<void> sonuc(String city) async {
     await Firebase.initializeApp();
     CollectionReference reference =
-        FirebaseFirestore.instance.collection("CovidMap");
+        FirebaseFirestore.instance.collection("CoinsMap");
 
     var snapshot = await reference.doc(city).get();
     if (snapshot.exists) {
       await reference
           .doc(city)
-          .update({'possibly_infected': FieldValue.increment(1)});
+          .update({'probably_owner': FieldValue.increment(1)});
     } else {
-      await reference.doc(city).set({'possibly_infected': 1});
+      await reference.doc(city).set({'probably_owner': 1});
     }
   }
 
@@ -66,25 +87,25 @@ class _TestState extends State<Test> {
       body: Container(
         child: city == ""
             ? FutureBuilder(
-                future: getcity(),
+                future: getcoin(),
                 builder: (context, snapshopt) {
                   return Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                            "Teste Başlamadan önce İlerde daha iyi hizmet saglamamız için Lütfen Bulundugunuz ili seçiniz ",
+                            "Teste Başlamadan önce Sahip oldgunuz  Parayı seçiniz ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.red,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold)),
                         DropdownButton(
-                          value: sehir,
+                          value: coin,
                           items: snapshopt.data,
                           onChanged: (value) {
                             setState(() {
-                              sehir = value;
+                              coin = value;
                             });
                           },
                         ),
@@ -96,7 +117,7 @@ class _TestState extends State<Test> {
                           ),
                           onPressed: () {
                             setState(() {
-                              city = sehir;
+                              city = coin;
                             });
                           },
                         )
@@ -177,7 +198,7 @@ class _TestState extends State<Test> {
                                                         builder: (context) =>
                                                             SonucSayfa(
                                                                 text:
-                                                                    "Vermiş olduğunuz cevaplardan göre Covid-19 riski taşıyor olabilirsiniz. En yakın sağlık kuruluşuna başvurunuz yada belirtileriniz hafif geçiyor ise kendinizi evinizde izole ediniz"))); //////////////////////////////
+                                                                    "Vermiş olduğunuz cevaplardan göre kripto parayı ya sahipsiiniz ya da çok  meraklı birisiniz size tavsiyem en yakın zamanda  kripto para  En yakın zamanda yatırımlarınız bu yönde seçmeniz verya devam ettirmeniz "))); //////////////////////////////
                                               } else if (index == 9 &&
                                                   counter_yes <= 4) {
                                                 Navigator.push(
@@ -186,7 +207,7 @@ class _TestState extends State<Test> {
                                                         builder: (context) =>
                                                             SonucSayfa(
                                                                 text:
-                                                                    "Vermiş olduğunuz cevaplara göre Covid-19 riski taşımamakta yada hafif geçirmektesiz. Eğer durumunuzun kötü olduğunu veya daha sonradan kötüleştiğini hissederseniz en yakın sağlık kuruluşuna başvurunuz")));
+                                                                    "Vermiş olduğunuz cevaplara göre Sanırım biraz daha arştırmanınz ve daha sonrasında kripto para yatımınızı düşünmenizi tavsiye ediyoruz  ")));
                                               } /////////////
                                               else //////////////
                                               {
@@ -199,7 +220,7 @@ class _TestState extends State<Test> {
                                             }
                                           },
                                           child: Text(
-                                            "Evet",
+                                            "${sorular[index].evet}",
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),
@@ -248,7 +269,7 @@ class _TestState extends State<Test> {
                                             });
                                           },
                                           child: Text(
-                                            "Hayır",
+                                            "${sorular[index].hayir}",
                                             style: TextStyle(color: Colors.red),
                                           ),
                                         ),
@@ -274,8 +295,12 @@ class _TestState extends State<Test> {
 
 class Soru {
   String soru;
+  String evet;
+  String hayir;
 
   Soru.fromJson(Map<String, dynamic> json) {
     soru = json['soru'];
+    evet = json['evet'];
+    hayir = json["hayir"];
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'statcard.dart';
 
 class StatsGrid extends StatelessWidget {
-  double data;
+  dynamic data;
   StatsGrid({@required this.data});
 
   @override

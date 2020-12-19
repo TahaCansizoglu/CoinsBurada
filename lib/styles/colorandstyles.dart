@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // Colors
 const kBackgroundColor = Color(0xFFFEFEFE);
@@ -29,4 +30,14 @@ const kTitleTextstyle = TextStyle(
   fontSize: 18,
   color: kTitleTextColor,
   fontWeight: FontWeight.bold,
+);
+TextStyle kDetailStyleHeader = GoogleFonts.oxanium(
+  fontWeight: FontWeight.bold,
+  fontSize: 24,
+  color: Colors.black,
+);
+TextStyle kDetailStyleTitle = GoogleFonts.oxanium(
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  color: Colors.black,
 );

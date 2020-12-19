@@ -35,7 +35,7 @@ class BuildStatCard extends StatelessWidget {
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20)),
           border: onBorder == true
-              ? Border.all(color: Colors.red[200], width: 0.9)
+              ? Border.all(color: Colors.blue[200], width: 0.9)
               : null,
         ),
         child: Column(

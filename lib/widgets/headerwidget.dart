@@ -2,6 +2,7 @@ import 'package:coinsburada/screens/testscreen.dart';
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
+  HeaderWidget();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +22,7 @@ class HeaderWidget extends StatelessWidget {
             margin: EdgeInsets.only(
                 right: MediaQuery.of(context).size.width * 6 / 10),
             child: Text(
-              "COVID-19",
+              "COİN-BURADA",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -33,7 +34,7 @@ class HeaderWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Kendinizi Hasta Hissediyormusunuz ?",
+                "Kripto para takip uygulaması",
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -49,7 +50,7 @@ class HeaderWidget extends StatelessWidget {
           ),
           Container(
             child: Text(
-              "Eger kendinizi hasta hissediyorsanız ve COVID kapmış olma ihtimaliniz varsa  sayfa içerisinde belirtilen COVID 19 belirtilerine bakınız ve gerek olursa yardım almak için iletişim numrasından  yetkilirle  irtibata geçiniz ",
+              " COIN BURADA Kripto  para takip uygulaması \n Kripto paraların günlük degerleri , günlük olarak çıktıkları ve indikleri en yüksek degerlerin gösterilldigi uygulama ",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14, color: Colors.white),
             ),
@@ -64,7 +65,7 @@ class HeaderWidget extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
-                  "COVID-19 ",
+                  "COIN TEST ",
                   style: TextStyle(color: Colors.red),
                 ),
                 color: Colors.white,

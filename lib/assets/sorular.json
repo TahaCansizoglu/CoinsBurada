@@ -1,0 +1,37 @@
+[
+    {
+        "soru": "Kripto para ile ilgili yeterince bilgiye sahip misiniz ?",
+        "evet": "Evet",
+        "hayir": "Hayır"
+    },
+    {
+        "soru": "İleride veya şuan  Kripto para yatırım planınız var  mı ?",
+        "evet": "Evet",
+        "hayir": "Hayır"
+    },
+    {
+        "soru": "En fazla ne kdar bitcoin üretilebilir ?",
+        "evet": "21 milyon",
+        "hayir": "20 milyon"
+    },
+    {
+        "soru": "Sahip olduğunuz bitcoini kaybederseniz ne olur ?",
+        "evet": "Kaybolur",
+        "hayir": "Kaybolmaz"
+    },
+    {
+        "soru": "Kripto para dünyasına yatırım yapmadan önce herhangi bir uzman ders aldınız mı ?",
+        "evet": "Evet",
+        "hayir": "Hayır"
+    },
+    {
+        "soru": "Bitcoin güvenli bir yatırım mıdır ",
+        "evet": "Evet",
+        "hayir": "Hayır"
+    },
+    {
+        "soru": "Bitcoin cüzdanı ne işe yarar? ",
+        "evet": "Bitcoinleri depolamaya,\n saklamaya ve gönderim yapmaya yarar",
+        "hayir": "Bitcoinin değer kazanmasını sağlar"
+    }
+]

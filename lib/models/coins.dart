@@ -48,7 +48,7 @@ class Coins {
   int marketCap;
   int marketCapRank;
   int fullyDilutedValuation;
-  int totalVolume;
+  double totalVolume;
   double high24H;
   double low24H;
   double priceChange24H;
@@ -78,12 +78,15 @@ class Coins {
         fullyDilutedValuation: json["fully_diluted_valuation"] == null
             ? null
             : json["fully_diluted_valuation"],
-        totalVolume: json["total_volume"],
-        high24H: json["high_24h"].toDouble(),
-        low24H: json["low_24h"].toDouble(),
-        priceChange24H: json["price_change_24h"].toDouble(),
-        priceChangePercentage24H:
-            json["price_change_percentage_24h"].toDouble(),
+        totalVolume: json["total_volume"].toDouble(),
+        high24H: json["high_24h"] == null ? null : json["high_24h"].toDouble(),
+        low24H: json["low_24h"] == null ? null : json["low_24h"].toDouble(),
+        priceChange24H: json["price_change_24h"] == null
+            ? null
+            : json["price_change_24h"].toDouble(),
+        priceChangePercentage24H: json["price_change_percentage_24h"] == null
+            ? null
+            : json["price_change_percentage_24h"].toDouble(),
         marketCapChange24H: json["market_cap_change_24h"].toDouble(),
         marketCapChangePercentage24H:
             json["market_cap_change_percentage_24h"].toDouble(),
@@ -114,10 +117,11 @@ class Coins {
         "fully_diluted_valuation":
             fullyDilutedValuation == null ? null : fullyDilutedValuation,
         "total_volume": totalVolume,
-        "high_24h": high24H,
-        "low_24h": low24H,
-        "price_change_24h": priceChange24H,
-        "price_change_percentage_24h": priceChangePercentage24H,
+        "high_24h": high24H == null ? null : high24H,
+        "low_24h": low24H == null ? null : low24H,
+        "price_change_24h": priceChange24H == null ? null : priceChange24H,
+        "price_change_percentage_24h":
+            priceChangePercentage24H == null ? null : priceChangePercentage24H,
         "market_cap_change_24h": marketCapChange24H,
         "market_cap_change_percentage_24h": marketCapChangePercentage24H,
         "circulating_supply": circulatingSupply,
