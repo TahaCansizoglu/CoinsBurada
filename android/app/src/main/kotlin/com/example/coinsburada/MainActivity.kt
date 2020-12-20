@@ -1,4 +1,4 @@
-package com.example.coinsburada
+package com.frame.coinsburada
 
 import io.flutter.embedding.android.FlutterActivity
 

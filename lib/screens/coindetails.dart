@@ -42,10 +42,24 @@ class CoinDetails extends StatelessWidget {
                 ),
                 Text("Şuanki değer: ${data.currentPrice}\$",
                     style: kDetailStyleTitle),
-                Text("24 saat içindeki en yüksek değer: ${data.high24H}\$",
-                    style: kDetailStyleTitle),
-                Text("24 saat içindeki en düşük değer: ${data.low24H}\$",
-                    style: kDetailStyleTitle)
+                RichText(
+                    text: TextSpan(
+                        text: "24 saat içindeki en yüksek değer: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: data.high24H.toString() + "\$",
+                          style: kDetailStyleTitleGreen)
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        text: "24 saat içindeki en düşük değer: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: data.low24H.toString() + "\$",
+                          style: kDetailStyleTitleRed)
+                    ])),
               ],
             ),
             Column(
@@ -82,15 +96,25 @@ class CoinDetails extends StatelessWidget {
                     )
                   ],
                 ),
-                Text(
-                  "Değerdeki değişim: %${data.priceChangePercentage24H}",
-                  style: kDetailStyleTitle,
-                ),
-                Text(
-                    "Pazar hacmindeki değişim: %${data.marketCapChangePercentage24H}",
-                    style: kDetailStyleTitle),
-                Text("Ath değişimi: %${data.athChangePercentage}",
-                    style: kDetailStyleTitle),
+                RichText(
+                    text: TextSpan(
+                        text: "Değerdeki değişim: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: "%" + data.priceChangePercentage24H.toString(),
+                          style: getcolor(data.priceChangePercentage24H))
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        text: "Pazar hacmindeki değişim: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: "%" +
+                              data.marketCapChangePercentage24H.toString(),
+                          style: getcolor(data.marketCapChangePercentage24H))
+                    ])),
               ],
             ),
             Column(
@@ -106,17 +130,56 @@ class CoinDetails extends StatelessWidget {
                     )
                   ],
                 ),
-                Text("Ath: ${data.ath}\$", style: kDetailStyleTitle),
-                Text("Ath değişimi: %${data.athChangePercentage}",
-                    style: kDetailStyleTitle),
-                Text("Atl : ${data.atl}\$", style: kDetailStyleTitle),
-                Text("Atl değişimi: %${data.atlChangePercentage}",
-                    style: kDetailStyleTitle)
+                RichText(
+                    text: TextSpan(
+                        text: "Ath: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: data.ath.toString() + "\$",
+                          style: kDetailStyleTitle)
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        text: "Ath değişimi: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: "%" + data.athChangePercentage.toString(),
+                          style: getcolor(data.athChangePercentage))
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        text: "Atl: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: data.atl.toString() + "\$",
+                          style: kDetailStyleTitle)
+                    ])),
+                RichText(
+                    text: TextSpan(
+                        text: "Atl değişimi: ",
+                        style: kDetailStyleTitle,
+                        children: <TextSpan>[
+                      TextSpan(
+                          text: "%" + data.atlChangePercentage.toString(),
+                          style: getcolor(data.atlChangePercentage))
+                    ])),
               ],
             )
           ],
         ),
       ),
     );
+  }
+
+  TextStyle getcolor(double deger) {
+    if (deger < 0)
+      return kDetailStyleTitleRed;
+    else if (deger == 0)
+      return kDetailStyleTitle;
+    else
+      return kDetailStyleTitleGreen;
   }
 }

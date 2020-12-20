@@ -41,3 +41,16 @@ TextStyle kDetailStyleTitle = GoogleFonts.oxanium(
   fontSize: 16,
   color: Colors.black,
 );
+TextStyle kDetailStyleTitleGreen = GoogleFonts.oxanium(
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  color: Colors.green,
+);
+TextStyle kDetailStyleTitleRed = GoogleFonts.oxanium(
+  fontWeight: FontWeight.bold,
+  fontSize: 16,
+  color: Colors.red,
+);
+TextStyle kNormalText = TextStyle(fontWeight: FontWeight.normal);
+TextStyle kBoldText =
+    TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 18);

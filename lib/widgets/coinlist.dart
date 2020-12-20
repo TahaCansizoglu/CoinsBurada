@@ -2,8 +2,6 @@ import 'package:coinsburada/models/coins.dart';
 import 'package:coinsburada/screens/coindetails.dart';
 import 'package:flutter/material.dart';
 
-import 'counter.dart';
-
 // ignore: must_be_immutable
 class CoinList extends StatelessWidget {
   Coins data;
@@ -59,15 +57,23 @@ class CoinList extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(data.marketCap.toString()),
-                    Text(data.marketCapChange24H.toString())
+                    Text(data.marketCap.toString() + "\$"),
+                    Text(data.marketCapChange24H.toStringAsFixed(2) + "\$",
+                        style:
+                            TextStyle(color: getcolor(data.marketCapChange24H)))
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(data.currentPrice.toString() + "USD"),
-                    Text(data.priceChangePercentage24H.toString() + "%")
+                    Text(
+                      data.currentPrice.toStringAsFixed(2) + "\$",
+                    ),
+                    Text(
+                      data.priceChangePercentage24H.toString() + "%",
+                      style: TextStyle(
+                          color: getcolor(data.priceChangePercentage24H)),
+                    )
                   ],
                 ),
               ],
@@ -76,5 +82,14 @@ class CoinList extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => CoinDetails(data: data)),
             ));
+  }
+
+  Color getcolor(double deger) {
+    if (deger < 0)
+      return Colors.red;
+    else if (deger == 0)
+      return Colors.black;
+    else
+      return Colors.green;
   }
 }

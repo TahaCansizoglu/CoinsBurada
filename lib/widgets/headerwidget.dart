@@ -6,10 +6,10 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 3.9 / 10,
+      height: MediaQuery.of(context).size.height * 3.4 / 10,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-          color: Colors.red,
+          color: Colors.blue,
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20))),
@@ -41,22 +41,22 @@ class HeaderWidget extends StatelessWidget {
                     fontSize: 18),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.50 / 10,
+                height: MediaQuery.of(context).size.height * 0.15 / 10,
               )
             ],
           ),
           SizedBox(
-            height: 20,
+            height: MediaQuery.of(context).size.height * 0.20 / 10,
           ),
           Container(
             child: Text(
               " COIN BURADA Kripto  para takip uygulaması \n Kripto paraların günlük degerleri , günlük olarak çıktıkları ve indikleri en yüksek degerlerin gösterilldigi uygulama ",
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, color: Colors.white),
+              style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.40 / 10,
+            height: MediaQuery.of(context).size.height * 0.20 / 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +66,7 @@ class HeaderWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   "COIN TEST ",
-                  style: TextStyle(color: Colors.red),
+                  style: TextStyle(color: Colors.blue),
                 ),
                 color: Colors.white,
                 onPressed: () {

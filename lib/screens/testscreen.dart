@@ -82,7 +82,7 @@ class _TestState extends State<Test> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         child: city == ""
@@ -97,7 +97,7 @@ class _TestState extends State<Test> {
                             "Teste Başlamadan önce Sahip oldgunuz  Parayı seçiniz ",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Colors.red,
+                                color: Colors.blue,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold)),
                         DropdownButton(
@@ -110,7 +110,7 @@ class _TestState extends State<Test> {
                           },
                         ),
                         RaisedButton(
-                          color: Colors.red,
+                          color: Colors.blue,
                           child: Text(
                             "Basla",
                             style: TextStyle(color: Colors.white),
@@ -156,13 +156,13 @@ class _TestState extends State<Test> {
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(20),
                                       border: Border.all(
-                                          color: Colors.red, width: 4),
+                                          color: Colors.blue, width: 4),
                                     ),
                                     child: Text(
                                       "${sorular[index].soru}",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Colors.red,
+                                          color: Colors.blue,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 17),
                                     ),
@@ -185,7 +185,7 @@ class _TestState extends State<Test> {
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(30)),
-                                          color: Colors.red,
+                                          color: Colors.blue,
                                           onPressed: () async {
                                             setState(() {
                                               if (index == 9 &&
@@ -270,7 +270,8 @@ class _TestState extends State<Test> {
                                           },
                                           child: Text(
                                             "${sorular[index].hayir}",
-                                            style: TextStyle(color: Colors.red),
+                                            style:
+                                                TextStyle(color: Colors.blue),
                                           ),
                                         ),
                                       ),

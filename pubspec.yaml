@@ -18,14 +18,16 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.4 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   http: ^0.12.2
   google_fonts: ^1.1.1
+  flutter_spinkit: "^4.1.2"
   firebase_core: ^0.5.3
+  splashscreen:
   cloud_firestore: ^0.14.4
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -34,7 +36,15 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_name: ^0.0.1
+  flutter_launcher_icons: ^0.8.1
 
+flutter_icons:
+  image_path: "lib/assets/icon.png"
+  ios: true
+  android: true
+flutter_launcher_name:
+  name: "Coin Burada"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -47,6 +57,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/assets/sorular.json
+    - lib/assets/icon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
