@@ -49,8 +49,6 @@ class _TumBilgilerState extends State<TumBilgiler> {
                 child: ListView.builder(
                   itemCount: widget.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    print(index);
-
                     return CoinList(
                       data: widget.data[index],
                       index: index,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "451084919808",
+    "project_id": "coinsbrrrr",
+    "storage_bucket": "coinsbrrrr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451084919808:android:f5a18167e6d8ec3e8ba4e5",
+        "android_client_info": {
+          "package_name": "com.frame.coinsburada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451084919808-vghudhocccps0oscaa1gacu0l57lbiu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRkJXgrwm7zCjjvgsIdouuBxDINg3nt7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451084919808-vghudhocccps0oscaa1gacu0l57lbiu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -188,9 +188,9 @@ class _TestState extends State<Test> {
                                           color: Colors.blue,
                                           onPressed: () async {
                                             setState(() {
-                                              if (index == 9 &&
+                                              if (index == 6 &&
                                                   counter_yes >=
-                                                      6) /////////////
+                                                      4) /////////////
                                               {
                                                 Navigator.push(
                                                     context,
@@ -198,8 +198,8 @@ class _TestState extends State<Test> {
                                                         builder: (context) =>
                                                             SonucSayfa(
                                                                 text:
-                                                                    "Vermiş olduğunuz cevaplardan göre kripto parayı ya sahipsiiniz ya da çok  meraklı birisiniz size tavsiyem en yakın zamanda  kripto para  En yakın zamanda yatırımlarınız bu yönde seçmeniz verya devam ettirmeniz "))); //////////////////////////////
-                                              } else if (index == 9 &&
+                                                                    "Vermiş olduğunuz cevaplardan göre kripto parayı ya sahipsiniz ya da çok  meraklı birisiniz size tavsiyem en yakın zamanda  kripto para  En yakın zamanda yatırımlarınız bu yönde seçmeniz verya devam ettirmeniz "))); //////////////////////////////
+                                              } else if (index == 6 &&
                                                   counter_yes <= 4) {
                                                 Navigator.push(
                                                     context,
@@ -244,25 +244,24 @@ class _TestState extends State<Test> {
                                           color: Colors.white,
                                           onPressed: () {
                                             setState(() {
-                                              if (index == 9 &&
-                                                  counter_yes >= 7) {
+                                              if (index == 6 &&
+                                                  counter_yes >= 4) {
                                                 Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             SonucSayfa(
                                                                 text:
-                                                                    "Vermiş olduğunuz cevaplardan göre Covid-19 riski taşıyor olabilirsiniz. En yakın sağlık kuruluşuna başvurunuz yada belirtileriniz hafif geçiyor ise kendinizi evinizde izole ediniz"))); //////////////////////////////
-
-                                              } else if (index == 9 &&
-                                                  counter_yes <= 7) {
+                                                                    "Vermiş olduğunuz cevaplardan göre kripto parayı ya sahipsiniz ya da çok  meraklı birisiniz size tavsiyem en yakın zamanda  kripto para  En yakın zamanda yatırımlarınız bu yönde seçmeniz verya devam ettirmeniz "))); //////////////////////////////
+                                              } else if (index == 6 &&
+                                                  counter_yes <= 4) {
                                                 Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             SonucSayfa(
                                                                 text:
-                                                                    "Vermiş olduğunuz cevaplara göre Covid-19 riski taşımamakta yada hafif geçirmektesiz. Eğer durumunuzun kötü olduğunu veya daha sonradan kötüleştiğini hissederseniz en yakın sağlık kuruluşuna başvurunuz")));
+                                                                    "Vermiş olduğunuz cevaplara göre Sanırım biraz daha arştırmanınz ve daha sonrasında kripto para yatımınızı düşünmenizi tavsiye ediyoruz  ")));
                                               } else {
                                                 index = index + 1;
                                               }

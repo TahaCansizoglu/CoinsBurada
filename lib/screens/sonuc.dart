@@ -9,7 +9,7 @@ class SonucSayfa extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         leading: new IconButton(
             icon: new Icon(Icons.arrow_back),
             onPressed: () {
