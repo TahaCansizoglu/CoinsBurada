@@ -20,7 +20,7 @@ class BuildStatCard extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Container(
       width: width,
-      height: height * 4 / 10,
+      height: height * 3.1 / 10,
       margin: const EdgeInsets.all(8.0),
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(

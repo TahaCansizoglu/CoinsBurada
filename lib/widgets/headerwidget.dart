@@ -14,6 +14,7 @@ class HeaderWidget extends StatelessWidget {
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20))),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.50 / 10,
@@ -28,7 +29,7 @@ class HeaderWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25 / 10,
+            height: MediaQuery.of(context).size.height * 0.10 / 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -40,13 +41,10 @@ class HeaderWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.15 / 10,
-              )
             ],
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.20 / 10,
+            height: MediaQuery.of(context).size.height * 0.10 / 10,
           ),
           Container(
             child: Text(
@@ -54,9 +52,6 @@ class HeaderWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.20 / 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

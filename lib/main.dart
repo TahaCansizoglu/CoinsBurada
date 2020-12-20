@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
     }
     int range = data.length;
     data.removeRange(100, range);
+    data.removeAt(80);
 
     return Future.value(Anasayfa(
       data: data,

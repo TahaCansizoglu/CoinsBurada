@@ -37,7 +37,9 @@ class CoinDetails extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.bar_chart),
-                    Text("Değişim", style: kDetailStyleHeader)
+                    FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text("Değişim", style: kDetailStyleHeader))
                   ],
                 ),
                 Text("Şuanki değer: ${data.currentPrice}\$",
@@ -124,9 +126,12 @@ class CoinDetails extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.add_shopping_cart),
-                    Text(
-                      "Tüm Zamanlar(${data.atlDate.year} itibaren)",
-                      style: kDetailStyleHeader,
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        "Tüm Zamanlar(${data.atlDate.year})",
+                        style: kDetailStyleHeader,
+                      ),
                     )
                   ],
                 ),

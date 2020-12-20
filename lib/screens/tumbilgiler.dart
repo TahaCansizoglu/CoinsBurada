@@ -5,10 +5,16 @@ import 'package:coinsburada/widgets/coinlist.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class TumBilgiler extends StatelessWidget {
+// ignore: must_be_immutable
+class TumBilgiler extends StatefulWidget {
   List<Coins> data;
   TumBilgiler({@required this.data});
 
+  @override
+  _TumBilgilerState createState() => _TumBilgilerState();
+}
+
+class _TumBilgilerState extends State<TumBilgiler> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +44,15 @@ class TumBilgiler extends StatelessWidget {
             ),
           ),
           Container(
-              height: MediaQuery.of(context).size.height * 8.3 / 10,
+              height: MediaQuery.of(context).size.height * 8 / 10,
               child: Container(
                 child: ListView.builder(
-                  itemCount: data.length,
+                  itemCount: widget.data.length,
                   itemBuilder: (BuildContext context, int index) {
+                    print(index);
+
                     return CoinList(
-                      data: data[index],
+                      data: widget.data[index],
                       index: index,
                     );
                   },

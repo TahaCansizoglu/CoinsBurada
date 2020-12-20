@@ -70,7 +70,7 @@ class CoinList extends StatelessWidget {
                       data.currentPrice.toStringAsFixed(2) + "\$",
                     ),
                     Text(
-                      data.priceChangePercentage24H.toString() + "%",
+                      data.priceChangePercentage24H.toStringAsFixed(2) + "%",
                       style: TextStyle(
                           color: getcolor(data.priceChangePercentage24H)),
                     )
@@ -89,7 +89,9 @@ class CoinList extends StatelessWidget {
       return Colors.red;
     else if (deger == 0)
       return Colors.black;
-    else
+    else if (deger > 0)
       return Colors.green;
+    else
+      return Colors.black;
   }
 }

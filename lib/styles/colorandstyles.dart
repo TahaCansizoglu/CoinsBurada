@@ -38,17 +38,17 @@ TextStyle kDetailStyleHeader = GoogleFonts.oxanium(
 );
 TextStyle kDetailStyleTitle = GoogleFonts.oxanium(
   fontWeight: FontWeight.bold,
-  fontSize: 16,
+  fontSize: 14,
   color: Colors.black,
 );
 TextStyle kDetailStyleTitleGreen = GoogleFonts.oxanium(
   fontWeight: FontWeight.bold,
-  fontSize: 16,
+  fontSize: 14,
   color: Colors.green,
 );
 TextStyle kDetailStyleTitleRed = GoogleFonts.oxanium(
   fontWeight: FontWeight.bold,
-  fontSize: 16,
+  fontSize: 14,
   color: Colors.red,
 );
 TextStyle kNormalText = TextStyle(fontWeight: FontWeight.normal);
